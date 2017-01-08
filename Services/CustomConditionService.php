@@ -28,10 +28,30 @@ class CustomConditionService implements ConditionServiceInterface
     /**
      * {@inheritdoc}
      */
-    public function getConditionSql()
+    public function getProductJoinConditionSql()
     {
         $condition = trim($this->config->get('SwkweListingSoldoutCustomCondition'));
 
-        return $condition ?: $this->service->getConditionSql();
+        return $condition ?: $this->service->getProductJoinConditionSql();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProductAttributeJoinConditionSql()
+    {
+        $condition = trim($this->config->get('swkweListingSoldoutCustomAttributeCondition'));
+
+        return $condition ?: $this->service->getProductAttributeJoinConditionSql();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getWhereSql()
+    {
+        $where = trim($this->config->get('swkweListingSoldoutCustomWhere'));
+
+        return $where ?: $this->service->getWhereSql();
     }
 }

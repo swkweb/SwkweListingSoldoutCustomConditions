@@ -118,11 +118,37 @@ final class Shopware_Plugins_Frontend_SwkweListingSoldoutCustomConditions_Bootst
 
     private function createConfiguration()
     {
-        $this->Form()->setElement(
+        $form = $this->Form();
+
+        $form->setElement(
             'text',
             'SwkweListingSoldoutCustomCondition',
             [
-                'label' => 'Bedingung SQL',
+                'label' => 'Join Bedingung SQL',
+                'value' => '',
+                'required' => false,
+                'description' => '', // TODO
+                'scope' => Shopware\Models\Config\Element::SCOPE_SHOP,
+            ]
+        );
+
+        $form->setElement(
+            'text',
+            'swkweListingSoldoutCustomAttributeCondition',
+            [
+                'label' => 'Attribut Join Bedingung SQL',
+                'value' => '',
+                'required' => false,
+                'description' => '', // TODO
+                'scope' => Shopware\Models\Config\Element::SCOPE_SHOP,
+            ]
+        );
+
+        $form->setElement(
+            'text',
+            'swkweListingSoldoutCustomWhere',
+            [
+                'label' => 'Where Bedingung SQL',
                 'value' => '',
                 'required' => false,
                 'description' => '', // TODO
